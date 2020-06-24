@@ -1,0 +1,112 @@
+.leftsidenav {
+	height: 100%;
+	width: min-content;
+	max-width: 100%;
+	position: fixed;
+	z-index: 1001;
+	top: 0;
+	left: 0;
+	background-color: #3e8e41;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: 0.5s;
+	display : none;
+	padding : 10px
+}
+
+.rightsidenav h4, .leftsidenav h4 {
+	color: white
+}
+
+.rightsidenav {
+	height: 100%;
+	width: 300px;
+	position: fixed;
+	z-index: 1001;
+	top: 0;
+	right: 0;
+	background-color: #204d74;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transition: 0.5s;
+	display : none;
+	padding : 10px
+}
+
+.btn-info2 {
+	color: #FFFFFF;
+	background-color: #7AAFDA;
+}
+
+.btn-info2:hover, .btn-info2.active {
+	color: #204d74;
+	background-color: white;
+}
+
+.btn-info1 {
+	background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.btn-info1.active, .btn-info1:hover {
+	background-color: white; /* Green */
+    color: #4CAF50;
+}
+
+.sticky_left {
+	width: auto;
+	height: auto;
+	position: fixed;
+	padding: 16px;
+	font-size: 16px;
+	background-color: #3e8e41 ; /* Green */
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	transition-duration: 0.4s;
+	top: 50%;
+	z-index: 1000;
+}
+
+.sticky_left:hover {
+	right: auto;
+	transition-duration: 0.4s;
+}
+
+.sticky_left:hover:after {
+	content: 'Reportes';
+}
+
+.sticky_right {
+	z-index: 1000;
+	width: auto;
+	height: auto;
+	position: fixed;
+	padding: 16px;
+	font-size: 16px;
+	background-color: #008CBA; /* blue */
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	transition-duration: 0.4s;
+	top: 50%;
+	right: 0px;
+}
+
+.sticky_right:hover {
+	left: auto;
+	transition-duration: 0.4s;
+}
+
+.sticky_right:hover:after {
+	content: 'Tiendas';
+}
+.signout:hover:before{
+	color:#CB1D11;
+}
