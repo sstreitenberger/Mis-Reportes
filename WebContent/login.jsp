@@ -53,6 +53,8 @@
 				<br> <br>
 				<div class="row">
 					<div class="col-xs-3">
+					</div>
+					<div class="col-xs-3">
 						<img src="img/bk.png" class="img-responsive center-block"
 							alt="Burger King">
 					</div>
@@ -60,10 +62,9 @@
 						<img src="img/sb.png" class="img-responsive center-block"
 							alt="Starbucks">
 					</div>
-					<div class="col-xs-6">
-						<img src="img/pf.png" class="img-responsive center-block"
-							alt="PF Changs">
+					<div class="col-xs-3">
 					</div>
+					
 				</div>
 			</div>
 		</div>
