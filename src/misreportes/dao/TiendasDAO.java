@@ -11,7 +11,7 @@ import misreportes.model.Usuario;
 public class TiendasDAO {
 
 	/**
-	 * El metodo extrae del ususrio logueado la marca a la que pertenece y prepara la query de ejecucion
+	 * El metodo extrae del usuario logueado la marca a la que pertenece y prepara la query de ejecucion
 	 * dependiendo de esta.
 	 * el caso "Alsea" es el unico que tendra a su disposicion todas la marcas anteriores.
 	 * @param u

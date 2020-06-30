@@ -63,6 +63,9 @@ public class ReportesDAO {
 	 */
 	public List<Map> ejecutarQuery(Reporte repo, String[] tiendas, Boolean top) throws Exception {
 		String query = repo.getQuery();
+		String URLEntrada ="jdbc:sqlserver://172.31.1.14:1433;databaseName=micros";
+		
+		
 
 		if (repo.getRango() != null && repo.getRango().getDesde() != null) {
 			query = query.replace("&FECHADESDE&", repo.getRango().getDesde());
@@ -70,7 +73,9 @@ public class ReportesDAO {
 		if (repo.getRango() != null && repo.getRango().getHasta() != null) {
 			query = query.replace("&FECHAHASTA&", repo.getRango().getHasta());
 		}
-
+		
+		System.out.println("ANTES DEL FOR:" + repo.getDburl());
+		
 		if (tiendas != null && tiendas.length > 0) {
 			String TIENDA = "";
 			String COLUMNA = "";
@@ -87,17 +92,40 @@ public class ReportesDAO {
 			}
 			query = query.replace("&TIENDA&", TIENDA);
 			query = query.replace("&COLUMNAS&", COLUMNA);
-			query = query.replace("&IP&", tiendas[0]);
+			query = query.replace("&IP&", tiendas[0]); 		
 		}
 
 		if (top) {
 			query = query.toLowerCase().replaceFirst("select", "select top 1000 ");
 		}
 		if (tiendas != null && tiendas.length == 1)
-			repo.setDburl( repo.getDburl().replace("&IP&", tiendas[0].split("\\.")[2] ) );
+			repo.setDburl(repo.getDburl().replace("&IP&", tiendas[0].split("\\.")[2] ) );
+		
 		
 		repo.setQuery(query);
 		System.out.println(query);
+		System.out.println("despues DEL FOR:" + repo.getDburl());
+		if ( repo.getDburl().contains("sqlserver"))
+		{
 		return rs2json(exec(repo));
+		}
+		
+			
+		else {
+		List<Map> json = new ArrayList<Map>();
+		
+			for (int i = 0; tiendas.length > i;i++) {
+				repo.setDburl("jdbc:sybase:Tds:"+tiendas[i]+":2638?ServiceName=micros");		
+				json.addAll((rs2json(exec(repo))));
+			}
+			
+			if (tiendas != null && tiendas.length == 1) {
+				return rs2json(exec(repo));
+				}
+				else {
+					
+					return json;
+				}			
+		}			
 	}
 }
