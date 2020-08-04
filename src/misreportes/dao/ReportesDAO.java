@@ -74,7 +74,6 @@ public class ReportesDAO {
 			query = query.replace("&FECHAHASTA&", repo.getRango().getHasta());
 		}
 		
-		System.out.println("ANTES DEL FOR:" + repo.getDburl());
 		
 		if (tiendas != null && tiendas.length > 0) {
 			String TIENDA = "";
@@ -104,13 +103,11 @@ public class ReportesDAO {
 		
 		repo.setQuery(query);
 		System.out.println(query);
-		System.out.println("despues DEL FOR:" + repo.getDburl());
 		if ( repo.getDburl().contains("sqlserver"))
 		{
 		return rs2json(exec(repo));
 		}
-		
-			
+					
 		else {
 		List<Map> json = new ArrayList<Map>();
 		
